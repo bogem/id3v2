@@ -1,4 +1,4 @@
-module github.com/bogem/id3v2
+module github.com/tramhao/id3v2
 
 go 1.13
 
