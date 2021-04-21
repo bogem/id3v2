@@ -51,6 +51,11 @@ func (tag *Tag) AddAttachedPicture(pf PictureFrame) {
 	tag.AddFrame(tag.CommonID("Attached picture"), pf)
 }
 
+// AddChapterFrame adds the chapter frame to tag.
+func (tag *Tag) AddChapterFrame(cf ChapterFrame) {
+	tag.AddFrame(tag.CommonID("Chapters"), cf)
+}
+
 // AddCommentFrame adds the comment frame to tag.
 func (tag *Tag) AddCommentFrame(cf CommentFrame) {
 	tag.AddFrame(tag.CommonID("Comments"), cf)

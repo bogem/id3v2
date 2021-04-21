@@ -50,7 +50,7 @@ func (pf PopularimeterFrame) WriteTo(w io.Writer) (n int64, err error) {
 	})
 }
 
-func parsePopularimeterFrame(br *bufReader) (Framer, error) {
+func parsePopularimeterFrame(br *bufReader, version byte) (Framer, error) {
 	email := br.ReadText(EncodingISO)
 	rating := br.ReadByte()
 

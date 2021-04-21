@@ -98,7 +98,7 @@ func (tag *Tag) parseFrames(opts Options) error {
 		}
 
 		br.Reset(bodyRd)
-		frame, err := parseFrameBody(id, br)
+		frame, err := parseFrameBody(id, br, tag.version)
 		if err != nil && err != io.EOF {
 			return err
 		}
@@ -174,13 +174,13 @@ func skipReaderBuf(rd io.Reader, buf []byte) error {
 	return nil
 }
 
-func parseFrameBody(id string, br *bufReader) (Framer, error) {
+func parseFrameBody(id string, br *bufReader, version byte) (Framer, error) {
 	if id[0] == 'T' && id != "TXXX" {
 		return parseTextFrame(br)
 	}
 
 	if parseFunc, exists := parsers[id]; exists {
-		return parseFunc(br)
+		return parseFunc(br, version)
 	}
 
 	return parseUnknownFrame(br)

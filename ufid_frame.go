@@ -24,7 +24,7 @@ func (ufid UFIDFrame) WriteTo(w io.Writer) (n int64, err error) {
 	})
 }
 
-func parseUFIDFrame(br *bufReader) (Framer, error) {
+func parseUFIDFrame(br *bufReader, version byte) (Framer, error) {
 	owner := br.ReadText(EncodingISO)
 	ident := br.ReadAll()
 

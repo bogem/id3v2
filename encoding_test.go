@@ -75,7 +75,7 @@ func TestUnsynchronisedLyricsFrameWithUTF16(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	parsed, err := parseUnsynchronisedLyricsFrame(newBufReader(buf))
+	parsed, err := parseUnsynchronisedLyricsFrame(newBufReader(buf), 4)
 	if err != nil {
 		t.Fatal(err)
 	}

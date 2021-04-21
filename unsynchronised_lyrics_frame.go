@@ -42,7 +42,7 @@ func (uslf UnsynchronisedLyricsFrame) WriteTo(w io.Writer) (n int64, err error) 
 	})
 }
 
-func parseUnsynchronisedLyricsFrame(br *bufReader) (Framer, error) {
+func parseUnsynchronisedLyricsFrame(br *bufReader, version byte) (Framer, error) {
 	encoding := getEncoding(br.ReadByte())
 	language := br.Next(3)
 	contentDescriptor := br.ReadText(encoding)
